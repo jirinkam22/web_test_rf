@@ -17,6 +17,8 @@ ${HEADLESS}     True
 ***Test Cases***
 
 Add Product To Cart
+    [Metadata]    Test Type=Semi-automated
+    [Metadata]    Interaction    Requires user interaction to approve login in the app.
     [Documentation]    Test adding a product to the cart and verify it stays in the cart after
     ...    user logs out and logs back in.
     New Page    ${LOGIN_URL}

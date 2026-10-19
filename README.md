@@ -23,7 +23,8 @@ Web tests in Robot framework.
 1. Open terminal.
 2. Go to the web_test_rf directory
 3. Run the command: 'robot --test "Add Product To Cart" Test_UI.robot'
-4. After the test run completes, you can view the results in the results directory:
+4. Please, keep in mind that the "Add Product To Cart" test is semi-automated and requires manual intervention. During the run, a dialog will appear and you will be prompted to approve the login in the UI Verify app for each login attempt. 
+5. After the test run completes, you can view the results in the results directory:
     - output.xml: The detailed output of the test run.
     - report.html: A summary report of the test execution.
     - log.html: A detailed log of the test execution.
