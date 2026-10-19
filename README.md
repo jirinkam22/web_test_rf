@@ -5,6 +5,7 @@ Web tests in Robot framework.
 - python 3 and pip installed
 - user account with primary MFA setup to UI Verify app
 
+
 ***Setup***
 1. Install Robot framework (https://docs.robotframework.org/docs/getting_started/ide):
     python3 --version
@@ -14,6 +15,9 @@ Web tests in Robot framework.
 2. Install and initialize Browser library
     python3 -m pip install robotframework-browser
     rfbrowser init
+
+3. Update test user and password in Config.resource file
+
 
 ***Run the test***
 1. Open terminal.
