@@ -3,7 +3,7 @@ Web tests in Robot framework.
 ***Pre-requisities***
 - Node.js and npm installed
 - python 3 and pip installed
-- user account with primary MFA setup to UI Verify app
+- user account with primary MFA setup to authenticator app
 
 
 ***Setup***
@@ -16,15 +16,20 @@ Web tests in Robot framework.
     python3 -m pip install robotframework-browser
     rfbrowser init
 
-3. Update test user and password in Config.resource file
+3. Install pyotp library
+    pip install pyotp
+
+4. Install dotenv library
+    pip install dotenv
+
+5. Update test user and password in Config.resource file, save OTP secret in .env file in the root of the directory
 
 
 ***Run the test***
 1. Open terminal.
 2. Go to the web_test_rf directory
 3. Run the command: 'robot --test "Add Product To Cart" Test_UI.robot'
-4. Please, keep in mind that the "Add Product To Cart" test is semi-automated and requires manual intervention. During the run, a dialog will appear and you will be prompted to approve the login in the UI Verify app for each login attempt. 
-5. After the test run completes, you can view the results in the results directory:
+4. After the test run completes, you can view the results in the results directory:
     - output.xml: The detailed output of the test run.
     - report.html: A summary report of the test execution.
     - log.html: A detailed log of the test execution.

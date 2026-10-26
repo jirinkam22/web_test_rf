@@ -2,6 +2,7 @@
 
 Library        Browser
 Library        Dialogs
+Library        library/otp.py
 Resource       Config.resource
 
 
@@ -10,7 +11,7 @@ Resource       Config.resource
 Login To User Account
     Input Username
     Input User Password
-    Inform User To Approve Login
+    Enter Otp Code
     Wait For Elements State    xpath=//button[contains(text(), 'Trust Device')]    visible  timeout=60
     Click    xpath=//button[contains(text(), 'Trust Device')]
 
@@ -22,9 +23,15 @@ Input User Password
     Fill Text    id=login-password    ${PASSWORD}
     Click        button[data-testid=login-button]
 
-Inform User To Approve Login
-    Log    Please approve the login in the app.
-    Execute Manual Step    Please approve the login in the app. Once approved, click on the PASS button to continue.
+Enter Otp Code
+    ${otp_code}=    Get Otp Code
+    ${length}=    Get Length    ${otp_code}
+    FOR  ${index}  IN RANGE  ${length}
+        ${digit}=    Evaluate    "${otp_code}"[${index}]
+        ${position}=    Evaluate    ${index} + 1
+        ${locator}=    Set Variable    xpath=(//input[contains(@class, 'confirmationCodeItem_')])[${position}]
+        Fill Text    ${locator}    ${digit}
+    END
 
 Logout User
     Go To    ${BASE_URL}
