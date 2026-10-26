@@ -27,6 +27,8 @@ Add Product To Cart
     Select Product And Add To Cart  ${PRODUCT_NAME}
     Open Cart And Verify Product In Cart  ${PRODUCT_NAME}
     Logout User
+    # Ensure the OTP code is regenerated so we don't use the same one for second login
+    Sleep  30s
     # Create a new context to clear cookies and local storage
     New Context
     New Page    ${LOGIN_URL}
